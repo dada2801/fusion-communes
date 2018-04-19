@@ -60,7 +60,7 @@ for row in rows[2:]:
 
     # anciennes communes
     communes = []
-    for anc in com['anciennes'].find_all("a"):
+    for anc in com['anciennes'].find_all("a", recursive=False):
         ancienne = dict(nom=anc.string,insee=get_insee('https://fr.wikipedia.org'+anc['href']))
         communes.append(ancienne)
     com['anciennes'] = communes
